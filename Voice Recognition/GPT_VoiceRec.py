@@ -5,16 +5,14 @@ import pyttsx3
 #Sesten gelen text üzerinden regex uygulayarak bilgi edinmek
 
 r = sr.Recognizer()
+audio = "audio.wav"
 
 def speakTest(command):
     engine = pyttsx3.init("sapi5", False)
     engine.say(command)
     engine.runAndWait()
 
-keyboardInput = " "
-
-while(keyboardInput == " "):
-    keyboardInput = input("Mikrofonu susturmak için herhangi bir tuşa basınız: ")
+while(True):
     try:
         with sr.Microphone() as source2:
             r.adjust_for_ambient_noise(source2, duration = 0.2)
